@@ -7,7 +7,7 @@ import Resin from './src/hooks/Resin';
 import TimeCounter from './src/components/TimeCounter';
 
 const App = () => {
-  const {secondsLeft, resinAmount, modifyResin, decreaseResin} = Resin(120);
+  const {secondsLeft, resinAmount, modifyResin, useResin} = Resin(50);
 
   return (
     <View>
@@ -17,7 +17,7 @@ const App = () => {
       </View>
       <Text>IMAGE PLACEHOLDER</Text>
       <TimeCounter seconds={secondsLeft} />
-      <UseButtons decreaseResin={decreaseResin} />
+      <UseButtons useResin={useResin} />
     </View>
   );
 };
