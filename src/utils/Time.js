@@ -1,7 +1,4 @@
-import {MAX_RESIN} from '../constants';
-
-const timeForFullRefill = actualResin => {
-  let sec = (MAX_RESIN - actualResin) * 480;
+const secondsToFullTime = sec => {
   let hours = Math.floor(sec / 3600);
   let minutes = Math.floor((sec - hours * 3600) / 60);
   let seconds = sec - hours * 3600 - minutes * 60;
@@ -17,4 +14,4 @@ const timeForFullRefill = actualResin => {
   return {hours, minutes, seconds};
 };
 
-export {timeForFullRefill};
+export {secondsToFullTime};
