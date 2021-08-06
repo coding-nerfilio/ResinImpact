@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {MAX_RESIN} from '../constants';
+import Storage from '../utils/Storage';
+import {AS as AppState} from './AppState';
 
 const Resin = initialResin => {
   const [resinAmount, setResin] = useState(initialResin);
@@ -7,33 +9,63 @@ const Resin = initialResin => {
     (MAX_RESIN - initialResin) * 480,
   );
 
-  const modifyResin = newValue => {
-    setResin(newValue);
+  const updateSeconds = resin => {
+    setSecondsLeft((MAX_RESIN - resin) * 480);
   };
 
+  const modifyResin = newValue => {
+    setResin(newValue);
+    updateSeconds(newValue);
+  };
+
+  const {appStateVisible} = AppState();
+
   const useResin = i => {
+    let newResineAmount;
     switch (i) {
       case 0:
-        setResin(resinAmount >= 60 ? resinAmount - 60 : resinAmount);
+        newResineAmount = resinAmount >= 60 ? resinAmount - 60 : resinAmount;
         break;
       case 1:
-        setResin(resinAmount >= 40 ? resinAmount - 40 : resinAmount);
+        newResineAmount = resinAmount >= 40 ? resinAmount - 40 : resinAmount;
         break;
       case 2:
-        setResin(resinAmount >= 30 ? resinAmount - 30 : resinAmount);
+        newResineAmount = resinAmount >= 30 ? resinAmount - 30 : resinAmount;
         break;
       case 3:
-        setResin(resinAmount >= 20 ? resinAmount - 20 : resinAmount);
+        newResineAmount = resinAmount >= 20 ? resinAmount - 20 : resinAmount;
         break;
       case 4:
-        setResin(resinAmount + 60);
+        newResineAmount = resinAmount + 60;
         break;
+      case 5:
+        newResineAmount = resinAmount + 1 > 160 ? 160 : resinAmount + 1;
     }
+    setResin(newResineAmount);
+    updateSeconds(newResineAmount);
   };
 
   useEffect(() => {
-    setSecondsLeft((MAX_RESIN - resinAmount) * 480);
-  }, [resinAmount]);
+    if (appStateVisible === 'active') {
+      const getSavedData = async () => {
+        let data = await Storage.RetrieveData();
+        if (data === null) {
+          return;
+        }
+        const timeElapsed = Math.floor((Date.now() - data.date) / 1000);
+        setResin(
+          data.resine + Math.floor(timeElapsed / 480) > 160
+            ? 160
+            : data.resine + Math.floor(timeElapsed / 480),
+        );
+        setSecondsLeft(data.seconds - timeElapsed);
+      };
+      getSavedData();
+    }
+    if (appStateVisible === 'background') {
+      Storage.SaveData(secondsLeft, resinAmount);
+    }
+  }, [appStateVisible]);
 
   useEffect(() => {
     const interval = setInterval(() => {
