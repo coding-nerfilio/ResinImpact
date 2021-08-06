@@ -10,10 +10,10 @@ const Resin = initialResin => {
   const decreaseResin = i => {
     switch (i) {
       case 0:
-        setResin(resinAmount - 20);
+        setResin(resinAmount >= 20 ? resinAmount - 20 : 0);
         break;
       case 1:
-        setResin(resinAmount - 40);
+        setResin(resinAmount >= 40 ? resinAmount - 40 : 0);
         break;
     }
   };
