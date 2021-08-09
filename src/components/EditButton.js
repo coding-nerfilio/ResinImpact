@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import EditSvg from '../assets/EditSVG';
 
 const EditButton = ({resinAmount, modifyResin}) => {
   const [editModal, setEditModal] = useState({
@@ -14,7 +15,7 @@ const EditButton = ({resinAmount, modifyResin}) => {
           onPress={() => {
             setEditModal({visible: true, value: resinAmount});
           }}>
-          <Text>E</Text>
+          <EditSvg width={16} height={16} />
         </TouchableOpacity>
       </View>
       <Modal visible={editModal.visible}>
