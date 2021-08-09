@@ -1,29 +1,25 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import {View, Animated} from 'react-native';
-import {MAX_RESIN} from '../constants';
+import AnimatedProgress from '../hooks/AnimatedProgress';
 
 const width = 50;
-const calculateProgress = resin => {
-  let value = (((resin * 100) / MAX_RESIN) * width) / 100;
-  return value > width ? width : value;
-};
 
 const ProgressBar = ({resinAmount}) => {
-  const barWidth = useRef(
-    new Animated.Value(calculateProgress(resinAmount)),
-  ).current;
-  useEffect(() => {
-    Animated.timing(barWidth, {
-      toValue: calculateProgress(resinAmount),
-      useNativeDriver: true,
-    }).start();
-  }, [resinAmount]);
+  const barWidth = AnimatedProgress(resinAmount);
   return (
-    <View style={{width, backgroundColor: '#aaa', height: 20}}>
+    <View
+      style={{
+        width,
+        backgroundColor: '#aaa',
+        height: 20,
+        justifyContent: 'flex-start',
+        overflow: 'hidden',
+      }}>
       <Animated.View
         style={{
           scaleX: barWidth,
-          width: 2,
+          marginLeft: -width,
+          width: width * 2,
           backgroundColor: '#000',
           height: 20,
         }}></Animated.View>
