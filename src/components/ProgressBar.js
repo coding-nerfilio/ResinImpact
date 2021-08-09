@@ -22,7 +22,8 @@ const ProgressBar = ({resinAmount}) => {
           width: width * 2,
           backgroundColor: '#000',
           height: 20,
-        }}></Animated.View>
+        }}
+      />
     </View>
   );
 };
