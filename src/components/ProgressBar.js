@@ -1,5 +1,5 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {View, Animated} from 'react-native';
 import {MAX_RESIN} from '../constants';
 
 const width = 50;
@@ -9,15 +9,24 @@ const calculateProgress = resin => {
 };
 
 const ProgressBar = ({resinAmount}) => {
+  const barWidth = useRef(
+    new Animated.Value(calculateProgress(resinAmount)),
+  ).current;
+  useEffect(() => {
+    Animated.timing(barWidth, {
+      toValue: calculateProgress(resinAmount),
+      useNativeDriver: true,
+    }).start();
+  }, [resinAmount]);
   return (
     <View style={{width, backgroundColor: '#aaa', height: 20}}>
-      <View
+      <Animated.View
         style={{
-          width: calculateProgress(resinAmount),
-
+          scaleX: barWidth,
+          width: 2,
           backgroundColor: '#000',
           height: 20,
-        }}></View>
+        }}></Animated.View>
     </View>
   );
 };
