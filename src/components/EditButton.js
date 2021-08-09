@@ -29,6 +29,12 @@ const EditButton = ({resinAmount, modifyResin}) => {
           }}>
           <Text>Ok</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setEditModal({...editModal, visible: false});
+          }}>
+          <Text>Cancel</Text>
+        </TouchableOpacity>
       </Modal>
     </>
   );
