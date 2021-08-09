@@ -2,38 +2,24 @@ import React from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 
 const UseButtons = ({useResin}) => {
+  const Button = ({text, index}) => {
+    return (
+      <TouchableOpacity
+        style={{padding: 16, borderWidth: 1, margin: 5}}
+        onPress={() => {
+          useResin(index);
+        }}>
+        <Text>{text}</Text>
+      </TouchableOpacity>
+    );
+  };
   return (
     <View style={{flexDirection: 'row'}}>
-      <TouchableOpacity
-        onPress={() => {
-          useResin(0);
-        }}>
-        <Text>-60</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          useResin(1);
-        }}>
-        <Text>-40</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          useResin(2);
-        }}>
-        <Text>-30</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          useResin(3);
-        }}>
-        <Text>-20</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          useResin(4);
-        }}>
-        <Text>+60</Text>
-      </TouchableOpacity>
+      <Button text={'-60'} index={0} />
+      <Button text={'-40'} index={1} />
+      <Button text={'-30'} index={2} />
+      <Button text={'-20'} index={3} />
+      <Button text={'+60'} index={4} />
     </View>
   );
 };
