@@ -8,7 +8,7 @@ const ResinCounter = ({resin}) => {
     <View style={{flexDirection: 'column'}}>
       <View style={{flexDirection: 'row'}}>
         <Text>{resin}</Text>
-        <Text>/ {MAX_RESIN}</Text>
+        <Text>/{MAX_RESIN}</Text>
       </View>
       <ProgressBar resinAmount={resin} />
     </View>
