@@ -2,7 +2,7 @@ import React from 'react';
 import ResinCounter from './src/components/ResinCounter';
 import {SafeAreaView, Text, View} from 'react-native';
 import UseButtons from './src/components/UseButtons';
-import EditButton from './src/components/EditButton';
+
 import TimeCounter from './src/components/TimeCounter';
 import Resin from './src/hooks/Resin';
 
@@ -18,8 +18,7 @@ const App = () => {
           marginTop: 10,
           marginLeft: 10,
         }}>
-        <ResinCounter resin={resinAmount} />
-        <EditButton modifyResin={modifyResin} />
+        <ResinCounter resin={resinAmount} modifyResin={modifyResin} />
       </View>
       <View
         style={{
