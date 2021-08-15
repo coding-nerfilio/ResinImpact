@@ -15,7 +15,6 @@ const UseButtons = ({useResin}) => {
   };
   return (
     <View style={{flexDirection: 'row'}}>
-      <Button text={'-60'} index={0} />
       <Button text={'-40'} index={1} />
       <Button text={'-30'} index={2} />
       <Button text={'-20'} index={3} />
