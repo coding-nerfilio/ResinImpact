@@ -2,7 +2,6 @@ import React from 'react';
 import ResinCounter from './src/components/ResinCounter';
 import {SafeAreaView, Text, View} from 'react-native';
 import UseButtons from './src/components/UseButtons';
-
 import TimeCounter from './src/components/TimeCounter';
 import Resin from './src/hooks/Resin';
 
@@ -10,7 +9,7 @@ const App = () => {
   const {secondsLeft, resinAmount, modifyResin, useResin} = Resin();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
       <View
         style={{
           flex: 1,
