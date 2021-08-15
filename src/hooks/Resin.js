@@ -37,7 +37,7 @@ const Resin = () => {
           setSecondsLeft(secondsLeft + 20 * SECONDS_PER_RESIN);
         break;
       case 4:
-        console.log('todo');
+        setSecondsLeft(secondsLeft - 60 * SECONDS_PER_RESIN);
         break;
     }
   };
