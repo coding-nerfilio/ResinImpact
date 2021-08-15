@@ -14,4 +14,6 @@ const secondsToFullTime = sec => {
   return {hours, minutes, seconds};
 };
 
-export {secondsToFullTime};
+const fullOnTime = sec => new Date(Date.now() + sec * 1000).toLocaleString();
+
+export {secondsToFullTime, fullOnTime};
