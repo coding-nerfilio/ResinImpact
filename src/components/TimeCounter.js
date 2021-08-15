@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import {secondsToFullTime} from '../utils/Time';
+import {fullOnTime, secondsToFullTime} from '../utils/Time';
 
 const TimeCounter = ({seconds}) => {
   const [timeLeft, setTimeLeft] = useState(secondsToFullTime(seconds));
@@ -10,10 +10,12 @@ const TimeCounter = ({seconds}) => {
   }, [seconds]);
 
   return (
-    <View>
+    <View style={{alignItems: 'center'}}>
       <Text>
         {timeLeft.hours + ':' + timeLeft.minutes + ':' + timeLeft.seconds}
       </Text>
+      <Text>Fully available on</Text>
+      <Text>{fullOnTime(seconds)}</Text>
     </View>
   );
 };
