@@ -1,6 +1,6 @@
 import React from 'react';
 import ResinCounter from './src/components/ResinCounter';
-import {SafeAreaView, Text, View} from 'react-native';
+import {Image, SafeAreaView, Text, View} from 'react-native';
 import UseButtons from './src/components/UseButtons';
 import TimeCounter from './src/components/TimeCounter';
 import Resin from './src/hooks/Resin';
@@ -25,7 +25,7 @@ const App = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text>IMAGE PLACEHOLDER</Text>
+        <Image source={require('./src/assets/Resin.png')} />
         <TimeCounter seconds={secondsLeft} />
       </View>
       <View
