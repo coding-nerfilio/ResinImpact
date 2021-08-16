@@ -4,6 +4,7 @@ import {Image, SafeAreaView, Text, View} from 'react-native';
 import UseButtons from './src/components/UseButtons';
 import TimeCounter from './src/components/TimeCounter';
 import Resin from './src/hooks/Resin';
+import AboutButton from './src/components/AboutButton';
 
 const App = () => {
   const {secondsLeft, resinAmount, modifyResin, useResin} = Resin();
@@ -14,10 +15,11 @@ const App = () => {
         style={{
           flex: 1,
           flexDirection: 'row',
-          marginTop: 10,
-          marginLeft: 10,
+          justifyContent: 'space-between',
+          margin: 10,
         }}>
         <ResinCounter resin={resinAmount} modifyResin={modifyResin} />
+        <AboutButton />
       </View>
       <View
         style={{
