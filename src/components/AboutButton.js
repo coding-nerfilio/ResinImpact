@@ -38,12 +38,7 @@ const AboutModal = handleOpenLink => {
       <Modal
         animationType="fade"
         visible={modalVisible}
-        style={{
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignContent: 'center',
-          alignItems: 'center',
-        }}>
+        style={Styles.ModalCentered}>
         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center'}}>Made by Francisco Risso</Text>
           <View style={{alignSelf: 'center'}}>
