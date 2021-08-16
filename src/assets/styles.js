@@ -10,6 +10,12 @@ const Styles = StyleSheet.create({
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
+  ModalCentered: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default Styles;
