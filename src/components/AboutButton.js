@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, Text, TouchableOpacity, View} from 'react-native';
+import Styles from '../assets/styles';
 import {GITHUB_LINK} from '../constants';
 import OpenLink from '../utils/OpenLink';
 
@@ -14,8 +15,7 @@ const AboutButton = () => {
     <>
       <TouchableOpacity
         style={{
-          borderColor: 'black',
-          borderWidth: 1,
+          ...Styles.Button,
           padding: 3,
           paddingHorizontal: 10,
           alignSelf: 'flex-start',
@@ -56,16 +56,7 @@ const AboutModal = handleOpenLink => {
           </View>
           <TouchableOpacity
             onPress={handleSwitchModal}
-            style={{
-              borderColor: 'black',
-              borderWidth: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-              alignSelf: 'center',
-              paddingHorizontal: 3,
-              paddingVertical: 2,
-              marginTop: 10,
-            }}>
+            style={{...Styles.Button, marginTop: 10}}>
             <Text>Close</Text>
           </TouchableOpacity>
         </View>
