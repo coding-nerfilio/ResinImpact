@@ -1,6 +1,6 @@
 import React from 'react';
 import ResinCounter from './src/components/ResinCounter';
-import {Image, SafeAreaView, Text, View} from 'react-native';
+import {Image, SafeAreaView, View} from 'react-native';
 import UseButtons from './src/components/UseButtons';
 import TimeCounter from './src/components/TimeCounter';
 import Resin from './src/hooks/Resin';
