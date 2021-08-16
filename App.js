@@ -43,13 +43,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-  <View style={{flexDirection: 'row'}}>
-        <ResinCounter resin={resinAmount} />
-        <EditButton modifyResin={modifyResin} />
-      </View>
-      <Text>IMAGE PLACEHOLDER</Text>
-      <TimeCounter seconds={secondsLeft} />
-      <UseButtons useResin={useResin} />
-      */
