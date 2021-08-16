@@ -12,7 +12,7 @@ const EditResin = modifyResin => {
 
   return {
     component: (
-      <Modal visible={state.visible}>
+      <Modal visible={state.visible} animationType="fade">
         <TextInput
           value={state.value}
           onChangeText={onValueChange}
