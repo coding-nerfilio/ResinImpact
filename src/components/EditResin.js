@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import Strings from '../assets/strings';
 import Styles from '../assets/styles';
 
 const EditResin = modifyResin => {
@@ -27,7 +28,7 @@ const EditResin = modifyResin => {
           <TextInput
             value={state.value}
             onChangeText={onValueChange}
-            placeholder="Enter value"
+            placeholder={Strings[0][1]}
             style={{
               borderBottomWidth: 1,
               borderColor: 'black',
@@ -47,14 +48,14 @@ const EditResin = modifyResin => {
                 handleModify();
                 handleVisibility();
               }}>
-              <Text>Ok</Text>
+              <Text>{Strings[0][2]}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{...Styles.Button, width: '20%'}}
               onPress={() => {
                 handleVisibility();
               }}>
-              <Text>Cancel</Text>
+              <Text>{Strings[0][3]}</Text>
             </TouchableOpacity>
           </View>
         </View>

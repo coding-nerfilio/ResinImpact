@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, Text, TouchableOpacity, View} from 'react-native';
+import Strings from '../assets/strings';
 import Styles from '../assets/styles';
 import {GITHUB_LINK} from '../constants';
 import OpenLink from '../utils/OpenLink';
@@ -40,9 +41,9 @@ const AboutModal = handleOpenLink => {
         visible={modalVisible}
         style={Styles.ModalCentered}>
         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center'}}>Made by Francisco Risso</Text>
+          <Text style={{alignSelf: 'center'}}>{Strings[0][4]}</Text>
           <View style={{alignSelf: 'center'}}>
-            <Text style={{alignSelf: 'center'}}>Source code on:</Text>
+            <Text style={{alignSelf: 'center'}}>{Strings[0][5]}</Text>
             <Text
               style={{color: 'blue', alignSelf: 'center'}}
               onPress={handleOpenLink}>
@@ -52,7 +53,7 @@ const AboutModal = handleOpenLink => {
           <TouchableOpacity
             onPress={handleSwitchModal}
             style={{...Styles.Button, marginTop: 10}}>
-            <Text>Close</Text>
+            <Text>{Strings[0][6]}</Text>
           </TouchableOpacity>
         </View>
       </Modal>

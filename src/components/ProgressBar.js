@@ -9,7 +9,7 @@ const ProgressBar = ({resinAmount}) => {
   return (
     <View
       style={{
-        width,
+        width: 50,
         backgroundColor: '#aaa',
         height: 20,
         justifyContent: 'flex-start',
