@@ -11,7 +11,7 @@ const TimeCounter = ({seconds}) => {
 
   return (
     <View style={{alignItems: 'center'}}>
-      <Text>
+      <Text style={{fontSize: 20, marginBottom: 10}}>
         {timeLeft.hours + ':' + timeLeft.minutes + ':' + timeLeft.seconds}
       </Text>
       <Text>Fully available on</Text>
